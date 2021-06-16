@@ -1,0 +1,12 @@
+.calculator {
+  background-color: #0095af;
+  width: auto;
+
+  margin-left: 5rem;
+  margin-right: 5rem;
+
+  border-radius: 1.5rem;
+  padding: 2rem;
+
+  height: 50vh;
+}
