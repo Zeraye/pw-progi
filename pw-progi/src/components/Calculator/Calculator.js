@@ -1,3 +1,5 @@
+import { Container, Row, Col } from "react-bootstrap";
+
 import CalculatorSubjectAdd from "./CalculatorSubjectAdd";
 import CalculatorSubjectList from "./CalculatorSubjectList";
 
@@ -26,10 +28,16 @@ const Calculator = () => {
   ];
 
   return (
-    <div className={styles.calculator}>
-      <CalculatorSubjectAdd />
-      <CalculatorSubjectList subjects={subjects} />
-    </div>
+    <Container className={styles.calculator}>
+      <Row>
+        <Col>
+          <CalculatorSubjectAdd />
+        </Col>
+        <Col>
+          <CalculatorSubjectList subjects={subjects} />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
