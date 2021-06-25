@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACE,qBAAyB,CACzB,aACF,CAEA,cACE,UAAW,CACX,cACF","file":"main.78052a50.chunk.css","sourcesContent":["body {\n  background-color: #ffffff;\n  color: #0a0a0a;\n}\n\n.header:hover {\n  color: blue;\n  cursor: pointer;\n}\n"]}
