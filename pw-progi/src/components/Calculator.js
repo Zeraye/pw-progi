@@ -20,7 +20,7 @@ const Calculator = (props) => {
     }
 
     if (localStorage.getItem("scoreCalculator") != null) {
-      setEnglish(localStorage.getItem("scoreCalculator"));
+      setScore(localStorage.getItem("scoreCalculator"));
     }
   }, []);
 
