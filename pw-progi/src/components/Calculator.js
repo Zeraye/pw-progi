@@ -18,6 +18,10 @@ const Calculator = (props) => {
     if (localStorage.getItem("english") != null) {
       setEnglish(localStorage.getItem("english"));
     }
+
+    if (localStorage.getItem("scoreCalculator") != null) {
+      setEnglish(localStorage.getItem("scoreCalculator"));
+    }
   }, []);
 
   const updateMath = (event) => {
@@ -93,6 +97,7 @@ const Calculator = (props) => {
 
     setScore(newScore);
     props.updateScore(newScore);
+    localStorage.setItem("scoreCalculator", newScore.toString());
   };
 
   return (
