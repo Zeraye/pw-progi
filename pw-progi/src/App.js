@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import Calculator from "./components/Calculator";
-import FacultyList from "./components/FacultyList";
+import FacultyList from "./components/FacultyList/FacultyList";
 
-const faculties = [
+const majors = [
   {
     major: "Administracja",
     faculty: "Administracji i Nauk Społecznych",
@@ -518,10 +518,10 @@ const faculties = [
   },
 ];
 
-faculties.map((faculty) => {
-  faculty.favFac = false;
-  faculty.key = Math.random().toString();
-  return faculty;
+majors.map((major) => {
+  major.favMajor = false;
+  major.key = Math.random().toString();
+  return major;
 });
 
 function App() {
@@ -535,7 +535,7 @@ function App() {
     <div className="container p-5">
       <Calculator updateScore={updateScoreHandler} />
       <hr />
-      <FacultyList faculties={faculties} pts={score} />
+      <FacultyList majors={majors} pts={score} />
     </div>
   );
 }

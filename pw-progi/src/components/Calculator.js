@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Calculator = (props) => {
   const [math, setMath] = useState("");
@@ -6,10 +6,24 @@ const Calculator = (props) => {
   const [english, setEnglish] = useState("");
   const [score, setScore] = useState(0);
 
+  useEffect(() => {
+    if (localStorage.getItem("math") != null) {
+      setMath(localStorage.getItem("math"));
+    }
+
+    if (localStorage.getItem("physics") != null) {
+      setPhysics(localStorage.getItem("physics"));
+    }
+
+    if (localStorage.getItem("english") != null) {
+      setEnglish(localStorage.getItem("english"));
+    }
+  }, []);
+
   const updateMath = (event) => {
     let filteredSubjectScore = event.target.value;
 
-    if (+event.target.value < 0) {
+    if (+event.target.value < 0 || isNaN(+event.target.value) === true) {
       filteredSubjectScore = 0;
     }
 
@@ -19,12 +33,13 @@ const Calculator = (props) => {
 
     setMath(filteredSubjectScore);
     updateScore([filteredSubjectScore, physics, english]);
+    localStorage.setItem("math", filteredSubjectScore.toString());
   };
 
   const updatePhysics = (event) => {
     let filteredSubjectScore = event.target.value;
 
-    if (+event.target.value < 0) {
+    if (+event.target.value < 0 || isNaN(+event.target.value) === true) {
       filteredSubjectScore = 0;
     }
 
@@ -34,12 +49,13 @@ const Calculator = (props) => {
 
     setPhysics(filteredSubjectScore);
     updateScore([math, filteredSubjectScore, english]);
+    localStorage.setItem("physics", filteredSubjectScore.toString());
   };
 
   const updateEnglish = (event) => {
     let filteredSubjectScore = event.target.value;
 
-    if (+event.target.value < 0) {
+    if (+event.target.value < 0 || isNaN(+event.target.value) === true) {
       filteredSubjectScore = 0;
     }
 
@@ -49,6 +65,7 @@ const Calculator = (props) => {
 
     setEnglish(filteredSubjectScore);
     updateScore([math, physics, filteredSubjectScore]);
+    localStorage.setItem("english", filteredSubjectScore.toString());
   };
 
   const updateScore = ([mathScore, physicsScore, englishScore]) => {
@@ -79,44 +96,42 @@ const Calculator = (props) => {
   };
 
   return (
-    <>
-      <form>
-        <div className="input-group mb-3">
-          <span className="input-group-text">Matematyka p. rozszerzony</span>
-          <input
-            type="text"
-            className="form-control"
-            aria-label="Wynik maturalny z matematyki rozszerzonej"
-            onChange={updateMath}
-            value={math}
-          />
-          <span className="input-group-text">%</span>
-        </div>
-        <div className="input-group mb-3">
-          <span className="input-group-text">Fizyka p. rozszerzony</span>
-          <input
-            type="text"
-            className="form-control"
-            aria-label="Wynik maturalny z fizyki rozszerzonej"
-            onChange={updatePhysics}
-            value={physics}
-          />
-          <span className="input-group-text">%</span>
-        </div>
-        <div className="input-group mb-3">
-          <span className="input-group-text">Angielski p. rozszerzony</span>
-          <input
-            type="text"
-            className="form-control"
-            aria-label="Wynik maturalny z angielskiego rozszerzonego"
-            onChange={updateEnglish}
-            value={english}
-          />
-          <span className="input-group-text">%</span>
-        </div>
-        <h1 className="text-center">Punkty: {score}/225</h1>
-      </form>
-    </>
+    <form>
+      <div className="input-group mb-3">
+        <span className="input-group-text">Matematyka p. rozszerzony</span>
+        <input
+          type="text"
+          className="form-control"
+          aria-label="Wynik maturalny z matematyki rozszerzonej"
+          onChange={updateMath}
+          value={math}
+        />
+        <span className="input-group-text">%</span>
+      </div>
+      <div className="input-group mb-3">
+        <span className="input-group-text">Fizyka p. rozszerzony</span>
+        <input
+          type="text"
+          className="form-control"
+          aria-label="Wynik maturalny z fizyki rozszerzonej"
+          onChange={updatePhysics}
+          value={physics}
+        />
+        <span className="input-group-text">%</span>
+      </div>
+      <div className="input-group mb-3">
+        <span className="input-group-text">Angielski p. rozszerzony</span>
+        <input
+          type="text"
+          className="form-control"
+          aria-label="Wynik maturalny z angielskiego rozszerzonego"
+          onChange={updateEnglish}
+          value={english}
+        />
+        <span className="input-group-text">%</span>
+      </div>
+      <h1 className="text-center">Punkty: {score}/225</h1>
+    </form>
   );
 };
 
