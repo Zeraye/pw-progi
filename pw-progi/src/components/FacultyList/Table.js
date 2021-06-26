@@ -23,7 +23,7 @@ const Table = (props) => {
       <tbody>
         {props.majors.map((major) => {
           const threshold = major["pts" + props.year];
-
+          console.log(props.pts);
           if (
             threshold === "" ||
             (props.fav === true && major.favMajor !== true)

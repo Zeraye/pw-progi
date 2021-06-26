@@ -88,6 +88,7 @@ const FacultyList = (props) => {
         year={year}
         fav={fav}
         updateMajors={updateMajorsHandler}
+        pts={props.pts}
       />
     </React.Fragment>
   );
