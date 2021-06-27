@@ -13,11 +13,11 @@ const Calculator = (props) => {
     const newScore = Math.floor(math + physics + 0.25 * english);
     setScore(newScore);
     props.updateScore(newScore);
-    if (newScore <= 150) {
+    if (newScore < 150) {
       setColor("00a300");
-    } else if (newScore <= 175) {
+    } else if (newScore < 175) {
       setColor("f9a602");
-    } else if (newScore <= 200) {
+    } else if (newScore < 200) {
       setColor("cc7722");
     } else if (newScore <= 224) {
       setColor("800000");
