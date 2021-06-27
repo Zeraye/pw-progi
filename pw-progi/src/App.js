@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import Calculator from "./components/Calculator";
+import Calculator from "./components/Calculator/Calculator";
 import FacultyList from "./components/FacultyList/FacultyList";
 
 const majors = [
@@ -527,15 +527,8 @@ majors.map((major) => {
 function App() {
   const [score, setScore] = useState(0);
 
-  useEffect(() => {
-    if (localStorage.getItem("score") != null) {
-      setScore(+localStorage.getItem("score"));
-    }
-  }, []);
-
   const updateScoreHandler = (newScore) => {
     setScore(newScore);
-    localStorage.setItem("score", newScore.toString());
   };
 
   return (
