@@ -2,6 +2,22 @@ import React, { useState, useEffect } from "react";
 
 import Range from "./Range";
 
+const componentToHex = (c) => {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+};
+
+const rgbToHex = (r, g, b) => {
+  return componentToHex(r) + componentToHex(g) + componentToHex(b);
+};
+
+const createColor = (score) => {
+  const red = Math.floor(255 - score * (17 / 15));
+  const green = Math.floor(score * (17 / 15));
+  const blue = 0;
+  return rgbToHex(red, green, blue);
+};
+
 const Calculator = (props) => {
   const [math, setMath] = useState(50);
   const [physics, setPhysics] = useState(50);
@@ -13,17 +29,7 @@ const Calculator = (props) => {
     const newScore = Math.floor(math + physics + 0.25 * english);
     setScore(newScore);
     props.updateScore(newScore);
-    if (newScore < 150) {
-      setColor("00a300");
-    } else if (newScore < 175) {
-      setColor("f9a602");
-    } else if (newScore < 200) {
-      setColor("cc7722");
-    } else if (newScore <= 224) {
-      setColor("800000");
-    } else {
-      setColor("ffd700");
-    }
+    setColor(createColor(newScore));
   }, [math, physics, english, props]);
 
   const updateMathHandler = (newValue) => {
