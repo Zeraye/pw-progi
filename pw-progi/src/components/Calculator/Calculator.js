@@ -2,20 +2,15 @@ import React, { useState, useEffect } from "react";
 
 import Range from "./Range";
 
-const componentToHex = (c) => {
-  var hex = c.toString(16);
-  return hex.length == 1 ? "0" + hex : hex;
-};
-
-const rgbToHex = (r, g, b) => {
-  return componentToHex(r) + componentToHex(g) + componentToHex(b);
-};
-
 const createColor = (score) => {
-  const red = Math.floor(255 - score * (17 / 15));
-  const green = Math.floor(score * (17 / 15));
-  const blue = 0;
-  return rgbToHex(red, green, blue);
+  const MAX_SCORE = 225;
+  const MAX_RGB_VALUE = 255;
+
+  const RED = Math.floor(MAX_RGB_VALUE - score * (MAX_RGB_VALUE / MAX_SCORE));
+  const GREEN = Math.floor(score * (MAX_RGB_VALUE / MAX_SCORE));
+  const BLUE = 0;
+
+  return [RED, GREEN, BLUE];
 };
 
 const Calculator = (props) => {
@@ -23,7 +18,7 @@ const Calculator = (props) => {
   const [physics, setPhysics] = useState(50);
   const [english, setEnglish] = useState(50);
   const [score, setScore] = useState(0);
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState([0, 0, 0]);
 
   useEffect(() => {
     const newScore = Math.floor(math + physics + 0.25 * english);
@@ -62,7 +57,8 @@ const Calculator = (props) => {
         updateMath={updateEnglishHandler}
       />
       <h1 className="text-center">
-        Punkty: <span style={{ color: `#${color}` }}>{score}</span>/225
+        Punkty: <span style={{ color: `rgb(${color})` }}>{score}</span>
+        /225
       </h1>
     </React.Fragment>
   );
