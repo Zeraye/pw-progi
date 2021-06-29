@@ -1,0 +1,11 @@
+:root {
+  --bg-color: #343a40;
+  --font-color: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Code Pro", monospace;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+}

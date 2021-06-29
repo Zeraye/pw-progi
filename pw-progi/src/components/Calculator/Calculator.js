@@ -21,7 +21,7 @@ const Calculator = (props) => {
   const [color, setColor] = useState([0, 0, 0]);
 
   useEffect(() => {
-    const newScore = Math.floor(math + physics + 0.25 * english);
+    const newScore = Math.floor(math + physics + english / 4);
     setScore(newScore);
     props.updateScore(newScore);
     setColor(createColor(newScore));

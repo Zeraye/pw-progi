@@ -1,0 +1,11 @@
+.collapse__button {
+  font-size: 1.25rem;
+  display: inline;
+}
+
+.collapse__content {
+  background-color: var(--bg-color);
+  border-color: #000;
+  border-width: 2px;
+  font-size: 1.25rem;
+}
