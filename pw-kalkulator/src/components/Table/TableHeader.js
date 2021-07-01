@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import classes from "./Collapse.module.css";
+import classes from "./TableHeader.module.css";
 
 const ARROW_UP = (
   <svg
@@ -28,7 +28,7 @@ const ARROW_DOWN = (
   </svg>
 );
 
-const Collapse = (props) => {
+const TableHeader = (props) => {
   const [arrow, setArrow] = useState(ARROW_DOWN);
 
   const changeArrowHandler = () => {
@@ -38,31 +38,17 @@ const Collapse = (props) => {
     }
     setArrow(ARROW_DOWN);
   };
-
   return (
-    <div className="container-fluid mb-2">
-      <div className={`col-10 mx-auto p-1 ${classes.collapse}`}>
-        <p className="d-grid mb-0">
-          <button
-            className={`btn btn-dark ${classes.collapse__button}`}
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target={`#${props.collapseId}`}
-            aria-expanded="true"
-            aria-controls={props.ariaControls}
-            onClick={changeArrowHandler}
-          >
-            {props.buttonName} {arrow}
-          </button>
-        </p>
-        <div className="collapse show" id={props.collapseId}>
-          <div className={`card card-body ${classes.collapse__content}`}>
-            {props.children}
-          </div>
-        </div>
-      </div>
-    </div>
+    <th
+      className={classes.table__header}
+      onClick={() => {
+        props.sortFunc(props.sortType);
+        changeArrowHandler();
+      }}
+    >
+      {props.name} {arrow}
+    </th>
   );
 };
 
-export default Collapse;
+export default TableHeader;

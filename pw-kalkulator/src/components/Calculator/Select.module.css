@@ -1,5 +1,11 @@
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
+.select__select {
+  width: 60% !important;
+  text-align: center;
+  text-align-last: center;
+  -moz-text-align-last: center;
+}
+
+.select__input {
+  width: 20% !important;
+  border: none;
 }

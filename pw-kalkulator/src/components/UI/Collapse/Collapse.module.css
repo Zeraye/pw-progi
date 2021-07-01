@@ -1,20 +1,19 @@
 .collapse {
   border: 3px solid var(--bg-second-color);
-  border-radius: 5px;
-}
-
-.collapse__paragraph {
-  margin-bottom: 0px;
+  border-radius: 6px;
 }
 
 .collapse__button {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
 }
 
 .collapse__content {
   background-color: var(--bg-color);
-  /* border-color: #000;
-  border-width: 2px; */
   border: none;
-  font-size: 1.25rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .collapse {
+    width: 100%;
+  }
 }

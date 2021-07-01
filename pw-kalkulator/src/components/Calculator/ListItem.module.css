@@ -1,29 +1,29 @@
-.listItem {
+.sub {
   color: white;
-  background-color: #343a40;
-  /* border: 2px solid black; */
+  background-color: var(--bg-color);
   border: none;
-  font-size: 1rem;
 }
 
-.itemInfo {
+.sub__data {
   display: inline-block;
   text-align: center;
   width: 100%;
 }
 
-.customInputGroup {
-  width: 50%;
+.sub__input__group {
+  width: 30%;
 }
 
 @media only screen and (max-width: 768px) {
-  .customInputGroup {
+  .sub__data {
+    font-size: 0.8rem;
+  }
+
+  .sub__input {
+    font-size: 0.8rem;
+  }
+
+  .sub__input__group {
     width: 100%;
-  }
-  .itemInfo {
-    font-size: 0.8rem;
-  }
-  .customInput {
-    font-size: 0.8rem;
   }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./App.css";
 
@@ -8,11 +8,32 @@ import Table from "./components/Table/Table";
 import Settings from "./components/Settings/Settings";
 
 const App = () => {
+  const [subs, setSubs] = useState([]);
+
+  const updateSubsHandler = (newValue, newScore) => {
+    if (subs.filter((sub) => sub.value === newValue).length === 0) {
+      setSubs((prevSubs) => [
+        ...prevSubs,
+        { value: newValue, score: newScore },
+      ]);
+    } else {
+      setSubs((prevSubs) =>
+        prevSubs.map((prevSub) => {
+          if (prevSub.value === newValue) {
+            prevSub.score = newScore;
+            return prevSub;
+          }
+          return prevSub;
+        })
+      );
+    }
+  };
+
   return (
     <React.Fragment>
       <Navbar />
-      <Calculator />
-      <Table />
+      <Calculator subs={subs} updateSubs={updateSubsHandler} />
+      <Table subs={subs} />
       <Settings />
     </React.Fragment>
   );
