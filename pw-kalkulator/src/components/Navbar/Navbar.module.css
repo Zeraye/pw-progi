@@ -7,6 +7,11 @@
 
 .navbar__header {
   font-size: var(--header-font-size);
+  font-weight: bold;
+}
+
+.navbar__header span {
+  color: hsl(159, 50%, 50%);
 }
 
 .navbar__header {

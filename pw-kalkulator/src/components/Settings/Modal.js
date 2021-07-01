@@ -7,43 +7,43 @@ import classes from "./Modal.module.css";
 const Modal = () => {
   return (
     <div
-      class={`modal fade`}
+      className={`modal fade`}
       id="staticBackdrop"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
-        <div class={`modal-content ${classes.customModal}`}>
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">
+      <div className="modal-dialog">
+        <div className={`modal-content ${classes.customModal}`}>
+          <div className="modal-header">
+            <h5 className="modal-title" id="staticBackdropLabel">
               Ustawienia
             </h5>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Zamknij"
             ></button>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
             <Checkbox value={0} text={"Zapisuj procenty"} />
             <Checkbox value={1} text={"Zapisuj ulubione kierunki"} />
             <Checkbox value={2} text={"Zapisuj rok progów"} />
           </div>
-          <div class="modal-footer">
+          <div className="modal-footer">
             <button
               type="button"
-              class="btn btn-danger"
+              className="btn btn-danger"
               data-bs-dismiss="modal"
             >
               Zamknij
             </button>
             <button
               type="button"
-              class="btn btn-success"
+              className="btn btn-success"
               data-bs-dismiss="modal"
             >
               Zapisz

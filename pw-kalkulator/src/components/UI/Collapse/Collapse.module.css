@@ -1,11 +1,20 @@
+.collapse {
+  border: 3px solid var(--bg-second-color);
+  border-radius: 5px;
+}
+
+.collapse__paragraph {
+  margin-bottom: 0px;
+}
+
 .collapse__button {
   font-size: 1.25rem;
-  display: inline;
 }
 
 .collapse__content {
   background-color: var(--bg-color);
-  border-color: #000;
-  border-width: 2px;
+  /* border-color: #000;
+  border-width: 2px; */
+  border: none;
   font-size: 1.25rem;
 }

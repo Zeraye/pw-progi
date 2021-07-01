@@ -1,0 +1,29 @@
+.listItem {
+  color: white;
+  background-color: #343a40;
+  /* border: 2px solid black; */
+  border: none;
+  font-size: 1rem;
+}
+
+.itemInfo {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.customInputGroup {
+  width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .customInputGroup {
+    width: 100%;
+  }
+  .itemInfo {
+    font-size: 0.8rem;
+  }
+  .customInput {
+    font-size: 0.8rem;
+  }
+}

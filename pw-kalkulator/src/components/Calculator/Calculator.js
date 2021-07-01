@@ -1,6 +1,8 @@
 import React from "react";
 
 import Collapse from "../UI/Collapse/Collapse";
+import Select from "./Select";
+import List from "./List";
 
 const Calculator = () => {
   return (
@@ -9,7 +11,8 @@ const Calculator = () => {
       collapseId="collapseCalculator"
       ariaControls="Włącz kalkulator"
     >
-      Kalkulator...
+      <Select />
+      <List />
     </Collapse>
   );
 };

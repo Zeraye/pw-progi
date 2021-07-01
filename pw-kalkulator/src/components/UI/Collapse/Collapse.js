@@ -40,9 +40,9 @@ const Collapse = (props) => {
   };
 
   return (
-    <div className="container-fluid p-3">
-      <div className="col-10 mx-auto">
-        <p className="d-grid mx-auto">
+    <div className={`container-fluid p-2`}>
+      <div className={`col-10 mx-auto p-2 ${classes.collapse}`}>
+        <p className={`d-grid mx-auto ${classes.collapse__paragraph}`}>
           <button
             className={`btn btn-dark ${classes.collapse__button}`}
             type="button"
