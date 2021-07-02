@@ -1,11 +1,36 @@
+.select {
+  width: 65%;
+}
+
 .select__select {
   width: 60% !important;
   text-align: center;
   text-align-last: center;
   -moz-text-align-last: center;
+  border: none;
 }
 
 .select__input {
   width: 20% !important;
   border: none;
+}
+
+.select__warning {
+  font-size: 1rem !important;
+  color: #d2042d;
+  font-weight: 900;
+  display: absolute;
+}
+
+.select__input::placeholder {
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .select {
+    width: 100%;
+  }
+  .select__input {
+    width: 10% !important;
+  }
 }

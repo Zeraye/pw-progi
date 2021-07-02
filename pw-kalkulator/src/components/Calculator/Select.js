@@ -133,16 +133,32 @@ const SUBS = [
   },
 ];
 
+const scoreValidation = (score) => {
+  if (score === undefined) return false;
+  if (score.trim() === "") return false;
+  if (isNaN(+score)) return false;
+  if (+score < 0) return false;
+  if (+score > 100) return false;
+  if (!Number.isInteger(+score)) return false;
+  return true;
+};
+
 const Select = (props) => {
   const [sub, setSub] = useState();
   const [score, setScore] = useState();
+  const [dangerSub, setDangerSub] = useState(false);
+  const [dangerScore, setDangerScore] = useState(false);
 
   const updateSubHandler = (event) => {
     setSub(event.target.value);
+    if (event.target.value === undefined) setDangerSub(true);
+    else setDangerSub(false);
   };
 
   const updateScoreHandler = (event) => {
     setScore(event.target.value);
+    if (!scoreValidation(event.target.value)) setDangerScore(true);
+    else setDangerScore(false);
   };
 
   const keyPressHandler = (event) => {
@@ -151,29 +167,26 @@ const Select = (props) => {
     }
   };
 
-  const scoreValidation = (score) => {
-    if (score === undefined) return false;
-    if (score.trim() === "") return false;
-    if (isNaN(+score)) return false;
-    if (+score < 0) return false;
-    if (+score > 100) return false;
-    if (!Number.isInteger(+score)) return false;
-    return true;
-  };
-
   const addSubHandler = () => {
-    if (sub !== undefined && score !== undefined && score !== "") {
+    if (sub !== undefined) {
       if (scoreValidation(score)) {
         props.updateSubs(sub, score);
+        return;
       }
     }
+
+    if (sub === undefined) setDangerSub(true);
+
+    if (!scoreValidation(score)) setDangerScore(true);
   };
 
   return (
     <React.Fragment>
-      <div className="input-group w-50 mx-auto mb-3">
+      <div className={`input-group mx-auto mb-3 ${classes.select}`}>
         <select
-          className={`form-select btn-dark ${classes.select__select}`}
+          className={`form-select btn-dark ${classes.select__select} ${
+            dangerSub ? "bg-danger" : ""
+          }`}
           aria-label="Wybierz przedmiot"
           onChange={updateSubHandler}
         >
@@ -188,7 +201,10 @@ const Select = (props) => {
         </select>
         <input
           type="text"
-          className={`form-control btn-dark text-center ${classes.select__input}`}
+          className={`form-control btn-dark text-center ${
+            classes.select__input
+          } ${dangerScore ? "bg-danger" : ""}
+          `}
           aria-label="Wpisz wynik z matury"
           placeholder="Wynik"
           onChange={updateScoreHandler}
@@ -199,6 +215,21 @@ const Select = (props) => {
           {ADD_ICON}
         </button>
       </div>
+      {/* {dangerSub === true && dangerScore === true ? (
+        <div className={`text-center mb-3 ${classes.select__warning}`}>
+          Wybierz przedmiot i wpisz poprawny wynik!
+        </div>
+      ) : dangerSub ? (
+        <div className={`text-center mb-3 ${classes.select__warning}`}>
+          Wybierz przedmiot!
+        </div>
+      ) : dangerScore ? (
+        <div className={`text-center mb-3 ${classes.select__warning}`}>
+          Wpisz poprawny wynik!
+        </div>
+      ) : (
+        ""
+      )} */}
     </React.Fragment>
   );
 };

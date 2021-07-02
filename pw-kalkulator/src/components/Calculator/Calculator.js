@@ -9,6 +9,10 @@ const Calculator = (props) => {
     props.updateSubs(sub, score);
   };
 
+  const deleteSubHandler = (sub) => {
+    props.deleteSub(sub);
+  };
+
   return (
     <Collapse
       buttonName="Kalkulator"
@@ -16,7 +20,11 @@ const Calculator = (props) => {
       ariaControls="Włącz kalkulator"
     >
       <Select updateSubs={updateSubs} />
-      <List subs={props.subs} />
+      <List
+        subs={props.subs}
+        editSub={updateSubs}
+        deleteSub={deleteSubHandler}
+      />
     </Collapse>
   );
 };

@@ -29,10 +29,18 @@ const App = () => {
     }
   };
 
+  const deleteSubHandler = (newValue) => {
+    setSubs(subs.filter((sub) => sub.value !== newValue));
+  };
+
   return (
     <React.Fragment>
       <Navbar />
-      <Calculator subs={subs} updateSubs={updateSubsHandler} />
+      <Calculator
+        subs={subs}
+        updateSubs={updateSubsHandler}
+        deleteSub={deleteSubHandler}
+      />
       <Table subs={subs} />
       <Settings />
     </React.Fragment>
