@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./App.css";
 
@@ -9,6 +9,24 @@ import Settings from "./components/Settings/Settings";
 
 const App = () => {
   const [subs, setSubs] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("saveScores") === "true") {
+      if (JSON.parse(localStorage.getItem("scores")) !== null) {
+        setSubs(JSON.parse(localStorage.getItem("scores")));
+      }
+    } else {
+      localStorage.removeItem("scores");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("saveScores") === "true") {
+      localStorage.setItem("scores", JSON.stringify(subs));
+    } else {
+      localStorage.removeItem("scores");
+    }
+  }, [subs]);
 
   const updateSubsHandler = (newValue, newScore) => {
     if (subs.filter((sub) => sub.value === newValue).length === 0) {

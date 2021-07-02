@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Checkbox from "./Checkbox";
 
 import classes from "./Modal.module.css";
 
-const Modal = () => {
+const Modal = (props) => {
+  const [saveScores, setSaveScores] = useState(props.saveScores);
+  const [saveMajors, setSaveMajors] = useState(props.saveMajors);
+
+  useEffect(() => {
+    setSaveScores(props.saveScores);
+    setSaveMajors(props.saveMajors);
+  }, [props.saveScores, props.saveMajors]);
+
+  const saveScoresHandler = () => {
+    setSaveScores(!saveScores);
+  };
+
+  const saveMajorsHandler = () => {
+    setSaveMajors(!saveMajors);
+  };
+
+  const saveSettingsHandler = () => {
+    props.setSaveScores(saveScores);
+    props.setSaveMajors(saveMajors);
+  };
+
+  const closeSettingsHandler = () => {
+    setSaveScores(props.saveScores);
+    setSaveMajors(props.saveMajors);
+  };
+
   return (
     <div
       className={`modal fade`}
@@ -26,18 +52,27 @@ const Modal = () => {
               className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Zamknij"
+              onClick={closeSettingsHandler}
             ></button>
           </div>
           <div className="modal-body">
-            <Checkbox value={0} text={"Zapisuj procenty"} />
-            <Checkbox value={1} text={"Zapisuj ulubione kierunki"} />
-            <Checkbox value={2} text={"Zapisuj rok progów"} />
+            <Checkbox
+              checked={saveScores}
+              text={"Zapisuj wyniki"}
+              onClick={saveScoresHandler}
+            />
+            <Checkbox
+              checked={saveMajors}
+              text={"Zapisuj ulubione kierunki"}
+              onClick={saveMajorsHandler}
+            />
           </div>
           <div className="modal-footer">
             <button
               type="button"
               className="btn btn-danger"
               data-bs-dismiss="modal"
+              onClick={closeSettingsHandler}
             >
               Zamknij
             </button>
@@ -45,6 +80,7 @@ const Modal = () => {
               type="button"
               className="btn btn-success"
               data-bs-dismiss="modal"
+              onClick={saveSettingsHandler}
             >
               Zapisz
             </button>

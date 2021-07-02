@@ -78,7 +78,7 @@ const scoreConverter = (subs, subsRts) => {
 
 const Table = (props) => {
   const [majors, setMajors] = useState(MAJORS);
-  const [year, setYear] = useState("2017");
+  const [year, setYear] = useState("2020");
   const [fav, setFav] = useState(false);
   const [favMajors, setFavMajors] = useState([]);
   const [engi, setEngi] = useState(true);
@@ -89,6 +89,24 @@ const Table = (props) => {
   const [eng, setEng] = useState(true);
   const [war, setWar] = useState(true);
   const [plo, setPlo] = useState(true);
+
+  useEffect(() => {
+    if (localStorage.getItem("saveMajors") === "true") {
+      if (JSON.parse(localStorage.getItem("majors")) !== null) {
+        setFavMajors(JSON.parse(localStorage.getItem("majors")));
+      }
+    } else {
+      localStorage.removeItem("majors");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("saveMajors") === "true") {
+      localStorage.setItem("majors", JSON.stringify(favMajors));
+    } else {
+      localStorage.removeItem("majors");
+    }
+  }, [favMajors]);
 
   const updateYearHandler = (newYear) => {
     setYear(newYear);
