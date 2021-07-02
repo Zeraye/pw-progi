@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Navbar from "./components/Navbar/Navbar";
+import Announce from "./components/Announce/Announce";
 import Calculator from "./components/Calculator/Calculator";
 import Table from "./components/Table/Table";
 import Settings from "./components/Settings/Settings";
@@ -54,6 +55,7 @@ const App = () => {
   return (
     <React.Fragment>
       <Navbar />
+      <Announce />
       <Calculator
         subs={subs}
         updateSubs={updateSubsHandler}
