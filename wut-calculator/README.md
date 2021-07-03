@@ -4,7 +4,7 @@ Showing data and calculating score for each major independently based on convers
 
 ## Website
 
-[WUTCalculator](zeraye.github.io/wut-calculator/)
+[WUTCalculator](https://zeraye.github.io/wut-calculator/)
 
 ## Requirements
 
