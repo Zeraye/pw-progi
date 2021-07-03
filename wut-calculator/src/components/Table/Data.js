@@ -53,12 +53,14 @@ const NOTFAV = (
 const Data = (props) => {
   const [majors, setMajors] = useState(props.majors);
   const [ascending, setAscending] = useState(-1);
+  const [currentSort, setCurrentSort] = useState();
 
   useEffect(() => {
     setMajors(props.majors);
   }, [props.majors]);
 
   const requestSortString = (key) => {
+    setCurrentSort(key);
     majors.sort((a, b) => {
       if (a[key] > b[key]) return ascending;
 
@@ -73,6 +75,7 @@ const Data = (props) => {
   };
 
   const requestSortNumber = (key) => {
+    setCurrentSort(key);
     majors.sort((a, b) => {
       if (+a[key][props.year] > +b[key][props.year]) return ascending;
 
@@ -91,14 +94,17 @@ const Data = (props) => {
       <tr key={major.id}>
         <td>{major.passed ? PASSED : FAILED}</td>
         <td>
-          <div>
-            <div>{major.major}</div>
-            <p className={`mb-0 ${classes.major__type}`}>
-              {major.type === "engineering" ? ENGINEERING : BACHELOR}
-            </p>
-          </div>
+          {major.major}
+          <p className={`mb-0 ${classes.major__type}`}>
+            {major.type === "engineering" ? ENGINEERING : BACHELOR}
+          </p>
         </td>
-        <td>{major.faculty}</td>
+        <td>
+          {major.faculty}
+          <p className={`mb-0 ${classes.major__type}`}>
+            {major.loc === "warsaw" ? WARSAW : PLOCK}
+          </p>
+        </td>
         <td>
           <div>
             <div>
@@ -109,7 +115,6 @@ const Data = (props) => {
         </td>
         <td>{major.spots}</td>
         <td>{major.lang === "pl" ? PL : ENG}</td>
-        <td>{major.loc === "warsaw" ? WARSAW : PLOCK}</td>
         <td onClick={() => props.updateFavMajors(major.id)}>
           {major.fav ? FAV : NOTFAV}
         </td>
@@ -135,31 +140,31 @@ const Data = (props) => {
               name="Kierunki"
               sortFunc={requestSortString}
               sortType="major"
+              activeArrow={currentSort === "major"}
             />
             <TableHeader
               name="Wydziały"
               sortFunc={requestSortString}
               sortType="faculty"
+              activeArrow={currentSort === "faculty"}
             />
             <TableHeader
               name="Wynik/próg"
               sortFunc={requestSortNumber}
               sortType="thold"
+              activeArrow={currentSort === "thold"}
             />
             <TableHeader
               name="Miejsca"
               sortFunc={requestSortString}
               sortType="spots"
+              activeArrow={currentSort === "spots"}
             />
             <TableHeader
               name="Język"
               sortFunc={requestSortString}
               sortType="lang"
-            />
-            <TableHeader
-              name="Miasto"
-              sortFunc={requestSortString}
-              sortType="loc"
+              activeArrow={currentSort === "lang"}
             />
             <th></th>
           </tr>

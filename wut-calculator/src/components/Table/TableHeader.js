@@ -46,7 +46,7 @@ const TableHeader = (props) => {
         changeArrowHandler();
       }}
     >
-      {props.name} {arrow}
+      {props.name} {props.activeArrow ? arrow : ""}
     </th>
   );
 };
