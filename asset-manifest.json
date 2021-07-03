@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/wut-calculator/static/css/main.bae7a799.chunk.css",
-    "main.js": "/wut-calculator/static/js/main.f4434e84.chunk.js",
-    "main.js.map": "/wut-calculator/static/js/main.f4434e84.chunk.js.map",
+    "main.js": "/wut-calculator/static/js/main.3fbc3c5f.chunk.js",
+    "main.js.map": "/wut-calculator/static/js/main.3fbc3c5f.chunk.js.map",
     "runtime-main.js": "/wut-calculator/static/js/runtime-main.9a066655.js",
     "runtime-main.js.map": "/wut-calculator/static/js/runtime-main.9a066655.js.map",
     "static/js/2.fda59d14.chunk.js": "/wut-calculator/static/js/2.fda59d14.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.9a066655.js",
     "static/js/2.fda59d14.chunk.js",
     "static/css/main.bae7a799.chunk.css",
-    "static/js/main.f4434e84.chunk.js"
+    "static/js/main.3fbc3c5f.chunk.js"
   ]
 }
