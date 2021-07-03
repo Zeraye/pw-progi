@@ -1,0 +1,16 @@
+.reset__button {
+  width: 25%;
+  background-color: #dc3545 !important;
+  border: none;
+  color: white;
+}
+
+.reset__button:hover {
+  background-color: #cb3545 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .reset__button {
+    width: 100%;
+  }
+}

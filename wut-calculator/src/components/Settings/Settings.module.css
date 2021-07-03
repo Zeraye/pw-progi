@@ -1,0 +1,45 @@
+.float {
+  position: fixed;
+  width: 64px;
+  height: 64px;
+  bottom: 40px;
+  right: 40px;
+  background-color: hsl(159, 100%, 50%);
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px hsl(210, 10%, 13%);
+
+  animation-name: fadeOutButton;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  border: none;
+}
+
+.my-float {
+  color: #fff;
+}
+
+.float:hover {
+  animation-name: fadeInButton;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInButton {
+  from {
+    background-color: hsl(159, 100%, 40%);
+  }
+  to {
+    background-color: hsl(159, 80%, 40%);
+  }
+}
+
+@keyframes fadeOutButton {
+  from {
+    background-color: hsl(159, 80%, 40%);
+  }
+  to {
+    background-color: hsl(159, 100%, 40%);
+  }
+}

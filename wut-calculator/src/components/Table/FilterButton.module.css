@@ -1,0 +1,8 @@
+.filter__button {
+  color: white;
+  border: 2px solid var(--bg-second-color);
+}
+
+.filter__inactive.filter__button:focus {
+  background-color: transparent;
+}

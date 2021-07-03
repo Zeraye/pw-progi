@@ -1,0 +1,19 @@
+.collapse {
+  border: 3px solid var(--bg-second-color);
+  border-radius: 6px;
+}
+
+.collapse__button {
+  font-size: 1.3rem;
+}
+
+.collapse__content {
+  background-color: var(--bg-color);
+  border: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .collapse {
+    width: 100%;
+  }
+}
