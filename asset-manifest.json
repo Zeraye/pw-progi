@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/wut-calculator/static/css/main.1cbb1fc2.chunk.css",
-    "main.js": "/wut-calculator/static/js/main.fa1bf606.chunk.js",
-    "main.js.map": "/wut-calculator/static/js/main.fa1bf606.chunk.js.map",
+    "main.css": "/wut-calculator/static/css/main.3143d0d1.chunk.css",
+    "main.js": "/wut-calculator/static/js/main.3af54fa6.chunk.js",
+    "main.js.map": "/wut-calculator/static/js/main.3af54fa6.chunk.js.map",
     "runtime-main.js": "/wut-calculator/static/js/runtime-main.9a066655.js",
     "runtime-main.js.map": "/wut-calculator/static/js/runtime-main.9a066655.js.map",
     "static/js/2.fda59d14.chunk.js": "/wut-calculator/static/js/2.fda59d14.chunk.js",
     "static/js/2.fda59d14.chunk.js.map": "/wut-calculator/static/js/2.fda59d14.chunk.js.map",
     "index.html": "/wut-calculator/index.html",
-    "static/css/main.1cbb1fc2.chunk.css.map": "/wut-calculator/static/css/main.1cbb1fc2.chunk.css.map",
+    "static/css/main.3143d0d1.chunk.css.map": "/wut-calculator/static/css/main.3143d0d1.chunk.css.map",
     "static/js/2.fda59d14.chunk.js.LICENSE.txt": "/wut-calculator/static/js/2.fda59d14.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9a066655.js",
     "static/js/2.fda59d14.chunk.js",
-    "static/css/main.1cbb1fc2.chunk.css",
-    "static/js/main.fa1bf606.chunk.js"
+    "static/css/main.3143d0d1.chunk.css",
+    "static/js/main.3af54fa6.chunk.js"
   ]
 }
