@@ -2,6 +2,8 @@
   --font-color: #fff;
   --bg-color: #343a40;
   --bg-second-color: #212529;
+  --danger-color: #d2042d;
+  --success-color: #32cd32;
 }
 
 body {

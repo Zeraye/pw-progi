@@ -6,3 +6,7 @@
 .filter__inactive.filter__button:focus {
   background-color: transparent;
 }
+
+.filter__button:focus {
+  box-shadow: none;
+}

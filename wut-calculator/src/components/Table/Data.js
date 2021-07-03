@@ -16,9 +16,9 @@ const WARSAW = "Warszawa";
 
 const PLOCK = "Płock";
 
-const PASSED = <div className={`${classes.circle} ${classes.passed}`}></div>;
+const PASSED = <div className={`${classes.circle__passed}`}></div>;
 
-const FAILED = <div className={`${classes.circle} ${classes.failed}`}></div>;
+const FAILED = <div className={`${classes.circle__failed}`}></div>;
 
 const FAV = (
   <button className={`btn btn-dark ${classes.fav__button}`}>

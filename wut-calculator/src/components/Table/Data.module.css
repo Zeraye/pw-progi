@@ -2,19 +2,20 @@
   font-size: 0.7rem;
 }
 
-.circle {
-  border-radius: 50%;
+.circle__passed,
+.circle__failed {
+  box-shadow: 1px 1px 1px var(--bg-second-color);
   width: 1.5rem;
   height: 1.5rem;
-  box-shadow: 1px 1px 1px var(--bg-second-color);
+  border-radius: 50%;
 }
 
-.passed {
-  background-color: #32cd32;
+.circle__passed {
+  background-color: var(--success-color);
 }
 
-.failed {
-  background-color: #d2042d;
+.circle__failed {
+  background-color: var(--danger-color);
 }
 
 .table__header {
