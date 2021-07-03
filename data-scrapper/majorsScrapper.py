@@ -21,41 +21,20 @@ for majorData in majorsData:
         controlNumber = 1
 
     facultyName = majorData[controlNumber].text.strip()
-    thold2017 = majorData[controlNumber+1].text.strip()
-    thold2018 = majorData[controlNumber+2].text.strip()
-    thold2019 = majorData[controlNumber+3].text.strip()
-    thold2020 = majorData[controlNumber+4].text.strip()
+    tholds = [majorData[controlNumber+i].text.strip() for i in range(1, 5)]
 
     data["majors"].append({
         "id": id,
         "major": majorName,
         "faculty": facultyName,
-        "spots": 0,
-        # bachelor, engineering,
-        "type": "engineering",
-        "lang": "pl",
-        "loc": "warsaw",
         "thold": {
-            "2017": thold2017,
-            "2018": thold2018,
-            "2019": thold2019,
-            "2020": thold2020},
-        "subs": {
-            "mth": 1,
-            "phy": 1,
-            "chm": 0.5,
-            "cs": 0.75,
-            "bio": 0.5,
-            "geo": 0,
-            "civ": 0,
-            "pol": 0,
-            "his": 0,
-            "fl": 0.25
-        },
-        "fav": False,
+            "2017": tholds[0],
+            "2018": tholds[1],
+            "2019": tholds[2],
+            "2020": tholds[3]}
     })
 
     id += 1
 
-with open("majors.json", "w", encoding="utf8") as f:
-    json.dump(data, f, ensure_ascii=False)
+with open("majors.json", "w", encoding="utf8") as file:
+    json.dump(data, file, ensure_ascii=False)
