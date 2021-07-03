@@ -4,7 +4,7 @@ import Collapse from "../UI/Collapse/Collapse";
 import Filter from "./Filter";
 import Data from "./Data";
 
-import data from "../../databases/dbMajors.json";
+import data from "../../databases/majors.json";
 
 const MAJORS = data["majors"];
 
