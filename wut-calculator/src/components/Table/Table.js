@@ -149,7 +149,14 @@ const Table = (props) => {
   };
 
   const updateFavMajorsHandler = (newFavMajorId) => {
-    setFavMajors((prevFavMajors) => [...prevFavMajors, newFavMajorId]);
+    setFavMajors((prevFavMajors) => {
+      if (prevFavMajors.includes(newFavMajorId)) {
+        return prevFavMajors.filter(
+          (prevFavMajor) => prevFavMajor !== newFavMajorId
+        );
+      }
+      return [...prevFavMajors, newFavMajorId];
+    });
   };
 
   useEffect(() => {
@@ -168,6 +175,7 @@ const Table = (props) => {
 
     tempMajors = tempMajors.map((major) => {
       if (favMajors.includes(major.id)) major["fav"] = true;
+      else major["fav"] = false;
       return major;
     });
 
