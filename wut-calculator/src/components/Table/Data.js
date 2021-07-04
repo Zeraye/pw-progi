@@ -89,6 +89,8 @@ const Data = (props) => {
     setMajors((majors) => [...majors]);
   };
 
+  console.log()
+
   let majors_list = majors.map((major) => {
     return (
       <tr key={major.id}>

@@ -12,8 +12,8 @@ const scoreConverter = (subs, subsRts) => {
   let score = 0;
 
   let mth = [];
-  const mthadv = subs.filter((sub) => sub.value === "mthadv");
-  const mthbsc = subs.filter((sub) => sub.value === "mthbsc");
+  const mthadv = subs.filter((sub) => sub.name === "mthadv");
+  const mthbsc = subs.filter((sub) => sub.name === "mthbsc");
 
   if (mthadv.length === 1) mth.push(mthadv[0].score * subsRts["mth"] * 1);
   if (mthbsc.length === 1) mth.push(mthbsc[0].score * subsRts["mth"] * 0.5);
@@ -21,15 +21,15 @@ const scoreConverter = (subs, subsRts) => {
   score += Math.max(...mth, 0);
 
   let sec = [];
-  const phyadv = subs.filter((sub) => sub.value === "phyadv");
-  const chmadv = subs.filter((sub) => sub.value === "chmadv");
-  const csadv = subs.filter((sub) => sub.value === "csadv");
-  const bioadv = subs.filter((sub) => sub.value === "bioadv");
-  const geoadv = subs.filter((sub) => sub.value === "geoadv");
-  const civadv = subs.filter((sub) => sub.value === "civadv");
-  const hisadv = subs.filter((sub) => sub.value === "hisadv");
-  const poladv = subs.filter((sub) => sub.value === "poladv");
-  const polbsc = subs.filter((sub) => sub.value === "polbsc");
+  const phyadv = subs.filter((sub) => sub.name === "phyadv");
+  const chmadv = subs.filter((sub) => sub.name === "chmadv");
+  const csadv = subs.filter((sub) => sub.name === "csadv");
+  const bioadv = subs.filter((sub) => sub.name === "bioadv");
+  const geoadv = subs.filter((sub) => sub.name === "geoadv");
+  const civadv = subs.filter((sub) => sub.name === "civadv");
+  const hisadv = subs.filter((sub) => sub.name === "hisadv");
+  const poladv = subs.filter((sub) => sub.name === "poladv");
+  const polbsc = subs.filter((sub) => sub.name === "polbsc");
 
   if (phyadv.length === 1) sec.push(phyadv[0].score * subsRts["phy"] * 1);
   if (chmadv.length === 1) sec.push(chmadv[0].score * subsRts["chm"] * 1);
@@ -45,18 +45,18 @@ const scoreConverter = (subs, subsRts) => {
 
   let fl = [];
 
-  const engadv = subs.filter((sub) => sub.value === "engadv");
-  const fraadv = subs.filter((sub) => sub.value === "fraadv");
-  const spaadv = subs.filter((sub) => sub.value === "spaadv");
-  const geradv = subs.filter((sub) => sub.value === "geradv");
-  const rusadv = subs.filter((sub) => sub.value === "rusadv");
-  const itaadv = subs.filter((sub) => sub.value === "itaadv");
-  const engbsc = subs.filter((sub) => sub.value === "engbsc");
-  const frabsc = subs.filter((sub) => sub.value === "frabsc");
-  const spabsc = subs.filter((sub) => sub.value === "spabsc");
-  const gerbsc = subs.filter((sub) => sub.value === "gerbsc");
-  const rusbsc = subs.filter((sub) => sub.value === "rusbsc");
-  const itabsc = subs.filter((sub) => sub.value === "itabsc");
+  const engadv = subs.filter((sub) => sub.name === "engadv");
+  const fraadv = subs.filter((sub) => sub.name === "fraadv");
+  const spaadv = subs.filter((sub) => sub.name === "spaadv");
+  const geradv = subs.filter((sub) => sub.name === "geradv");
+  const rusadv = subs.filter((sub) => sub.name === "rusadv");
+  const itaadv = subs.filter((sub) => sub.name === "itaadv");
+  const engbsc = subs.filter((sub) => sub.name === "engbsc");
+  const frabsc = subs.filter((sub) => sub.name === "frabsc");
+  const spabsc = subs.filter((sub) => sub.name === "spabsc");
+  const gerbsc = subs.filter((sub) => sub.name === "gerbsc");
+  const rusbsc = subs.filter((sub) => sub.name === "rusbsc");
+  const itabsc = subs.filter((sub) => sub.name === "itabsc");
 
   if (engadv.length === 1) fl.push(engadv[0].score * subsRts["fl"] * 1);
   if (fraadv.length === 1) fl.push(fraadv[0].score * subsRts["fl"] * 1);
@@ -157,6 +157,7 @@ const Table = (props) => {
 
     tempMajors = tempMajors.map((major) => {
       major["score"] = scoreConverter(props.scores, major.subs);
+
       return major;
     });
 
