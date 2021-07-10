@@ -1,6 +1,7 @@
 # WUT Calculator
 
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/Zeraye/wut-calculator)
+
 Showing data and calculating score for each major independently based on conversions factors.
 
 ## Website
