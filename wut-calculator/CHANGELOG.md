@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.0.2 (2021-08-02)
+
+- Fixed
+
+  - arrow shows only next to actually sorted value
+  - favourite majors are not updated correctly
+  - database spots
+  - object values in scoreConverter function
+
 ## v1.0.1 (2021-07-03)
 
 - Added
