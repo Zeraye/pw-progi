@@ -10,7 +10,7 @@ const Announce = () => {
   const [hours, setHours] = useState("00");
   const [days, setDays] = useState("00");
 
-  const countDownDate = new Date("Jul 5, 2021 8:30:00").getTime();
+  const countDownDate = new Date("Jul 6, 2021 23:59:00").getTime();
 
   useEffect(() => {
     const myInterval = setInterval(() => {
@@ -47,18 +47,18 @@ const Announce = () => {
     >
       <div className="h4 text-center">
         {days >= 0
-          ? `Do wyników matury zostało: ${days}:${hours}:${minutes}:${seconds}.`
-          : "Wyniki matur już są dosępne!"}
+          ? `Do zamknięcia rejestracji: ${days}:${hours}:${minutes}:${seconds}.`
+          : "Koniec rekrutacji."}
       </div>
       <div className="h8 text-center">
-        {days >= 0 ? "Wyniki będą dostępne " : ""}
+        {days >= 0 ? "Wyniki są dostępne " : "Koniec rekrutacji."}
         <a
           className={classes.announce__href}
           href="https://wyniki.edu.pl"
           target="_blank"
           rel="noreferrer"
         >
-          {days >= 0 ? "tutaj." : "Wyniki."}
+          {days >= 0 ? "tutaj." : ""}
         </a>
       </div>
     </Collapse>
