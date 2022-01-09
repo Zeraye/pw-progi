@@ -18,7 +18,3 @@ After pulling the repository, make sure to run
 ```sh
 npm install
 ```
-
-## Author
-
-The author of this repository is [Jakub Rudnik](https://github.com/Zeraye).
