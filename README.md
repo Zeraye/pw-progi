@@ -6,7 +6,3 @@ Scrapping data, calculating and visualizing it with advanced filters.
 
 - [WUT Calculator](https://github.com/Zeraye/wut-calculator/tree/main/wut-calculator)
 - [Data Scrapper](https://github.com/Zeraye/wut-calculator/tree/main/data-scrapper)
-
-## Author
-
-The author of this repository is [Jakub Rudnik](https://github.com/Zeraye).
